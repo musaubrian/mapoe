@@ -11,7 +11,7 @@ in the code just remove the `example`
 1. Install dependecies
 `pip install -r requirements.txt`
 2. Prepare Poem File
-Rename `poem.example` to `poem` and structure your poem like [this](##PoemStructure)
+Rename `poem.example` to `poem` and structure your poem like [this](https://github.com/musaubrian/mapoe?tab=readme-ov-file#poemstructure)
 3. Run the program
 ```sh
 # [-p] tells manim to play the video after its done generating it
