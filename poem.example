@@ -1,0 +1,21 @@
+#Optional so you can just not include it, video will use a black background
+::image
+path/to/image
+::
+
+::title
+Your poem title
+::
+
+::author
+#Optional, if not included, video will default to `Anonymous`
+you
+::
+
+::verse
+your verse
+::
+
+::verse
+another
+::
