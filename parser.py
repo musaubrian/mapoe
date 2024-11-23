@@ -41,10 +41,9 @@ class Poem:
         title_match = re.search(title_pattern, self.raw_text, re.DOTALL)
         if title_match:
             self.title = title_match.group(1).strip()
+            self.out_file_name = self.create_file_name()
         else:
             raise ValueError(f"[POEM]: expected one title, none were found")
-
-        self.out_filename = re.sub(r"[^a-zA-Z0-9-]", "", self.title.replace(" ", ""))
 
         verse_pattern = r"::verse(.*?)::"
         self.verses = [
@@ -68,6 +67,12 @@ class Poem:
         author_match = re.search(author_pattern, self.raw_text, re.DOTALL)
         if author_match:
             self.author = author_match.group(1).strip()
+
+    def create_file_name(self) -> str:
+        filename = re.sub(r"[^a-zA-Z0-9]", " ", self.title)
+        filename = filename.replace(" ", "_")
+        filename = re.sub(r"_+", "_", filename)  # remove excess underscores
+        return filename
 
     def __repr__(self):
         return f"POEM(image='{self.image},'title='{self.title}', verses={len(self.verses)}, author='{self.author}')"
