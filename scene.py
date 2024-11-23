@@ -25,7 +25,7 @@ with open("./poem", "r") as f:
 
 
 parsed_poem = Poem(raw_poem)
-config.output_file = parsed_poem.out_file_name
+config.output_file = parsed_poem.out_file_name or "DefaultScene"
 
 
 class PoemScene(Scene):
@@ -51,7 +51,7 @@ class PoemScene(Scene):
         self.wait()
 
         for verse_index, verse in enumerate(parsed_poem.verses):
-            verse_lines = verse.strip().split("\n")
+            verse_lines = verse.split("\n")
             text_group = VGroup()
 
             for line in verse_lines:
@@ -78,7 +78,7 @@ class PoemScene(Scene):
                 self.wait()
 
         author_text = Text(
-            f"By {parsed_poem.author}" or "Anonymous",
+            f"By {parsed_poem.author or 'Anonymous'}",
             font_size=55,
             font="Zed Mono",
             weight=BOLD,

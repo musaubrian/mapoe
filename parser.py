@@ -43,11 +43,11 @@ class Poem:
             self.title = title_match.group(1).strip()
             self.out_file_name = self.create_file_name()
         else:
-            raise ValueError(f"[POEM]: expected one title, none were found")
+            raise ValueError("[POEM]: expected one title, none were found")
 
         verse_pattern = r"::verse(.*?)::"
         self.verses = [
-            verse.strip()
+            verse.strip().replace("\n\n", "\n")
             for verse in re.findall(verse_pattern, self.raw_text, re.DOTALL)
         ]
 
