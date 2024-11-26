@@ -25,15 +25,23 @@ manim -p poem_scene.py
 The Library expects a very specific format of the poem for parsing.
 It uses the `::` notation to structure the poem.
 
- Tag       | Description                  | Required   |
----        | ---                          | ---        |
-`::title`  | The poems title              | Yes        |
-`::verse`  | Each stanza of the poem      | At least 1 |
-`::author` | The poems author             | No         |
-`::image`  | path to the background image | No         |
+ Tag        | Description                  | Required   |
+---         | ---                          | ---        |
+`::title`   | The poems title              | Yes        |
+`::verse`   | Each stanza of the poem      | At least 1 |
+`::author`  | The poems author             | No         |
+`::image`   | path to the background image | No         |
+`{{ ... }}` | Comments                     | No         |
 
 Example:
 ```txt
+{{ This is a comment and will be ignored when parsing }}
+{{
+ It
+  even support
+    block mode
+}}
+
 ::title
 <your_title>
 ::

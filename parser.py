@@ -37,6 +37,11 @@ class Poem:
         self.parse()
 
     def parse(self):
+        comment_pattern = r"{{(.*?)}}"
+        comment_match = re.search(comment_pattern, self.raw_text, re.DOTALL)
+        if comment_match:
+            self.raw_text = re.sub(comment_pattern, "", self.raw_text, flags=re.DOTALL)
+
         title_pattern = r"::title(.*?)::"
         title_match = re.search(title_pattern, self.raw_text, re.DOTALL)
         if title_match:
