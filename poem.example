@@ -3,6 +3,11 @@
 path/to/image
 ::
 
+::font
+    {{Your font}}
+    FreeSans
+::
+
 ::title
 Your poem title
 ::
@@ -17,5 +22,5 @@ your verse
 ::
 
 ::verse
-another
+another verse
 ::

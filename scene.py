@@ -26,6 +26,7 @@ with open("./poem", "r") as f:
 
 parsed_poem = Poem(raw_poem)
 config.output_file = parsed_poem.out_file_name or "DefaultScene"
+font = parsed_poem.font
 
 
 class PoemScene(Scene):
@@ -42,7 +43,7 @@ class PoemScene(Scene):
         title = Text(
             parsed_poem.title,
             font_size=70,
-            font="Zed Mono",
+            font=font,
             weight=BOLD,
         )
 
@@ -58,7 +59,7 @@ class PoemScene(Scene):
                 text = Text(
                     line.strip(),
                     font_size=47,
-                    font="Zed Mono",
+                    font=font,
                 )
                 text_group.add(text)
 
@@ -80,7 +81,7 @@ class PoemScene(Scene):
         author_text = Text(
             f"By {parsed_poem.author or 'Anonymous'}",
             font_size=55,
-            font="Zed Mono",
+            font=font,
             weight=BOLD,
         )
         author_text.next_to(title, DOWN, buff=0.5)

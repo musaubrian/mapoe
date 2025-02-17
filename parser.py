@@ -8,6 +8,9 @@ class Poem:
 
     Structure:
     =====
+    ::font
+    Zed Mono
+    ::
     ::image
     path/to/image
     ::
@@ -72,6 +75,11 @@ class Poem:
         author_match = re.search(author_pattern, self.raw_text, re.DOTALL)
         if author_match:
             self.author = author_match.group(1).strip()
+
+        font_pattern = r"::font(.*?)::"
+        font_match = re.search(font_pattern, self.raw_text, re.DOTALL)
+        if font_match:
+            self.font = font_match.group(1).strip()
 
     def create_file_name(self) -> str:
         filename = re.sub(r"[^a-zA-Z0-9]", " ", self.title)
